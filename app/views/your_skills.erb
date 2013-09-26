@@ -1,0 +1,19 @@
+<h1>Hi, <%= @user.name %></h1>
+<h4>Your skills so far:</h4>
+    <% @user.proficiencies.each do |prof| %>
+      <tr>
+        <td><%= @user.name %></td>
+        <td><%= prof.skill.name %></td>
+        <td><%= prof.experience %></td>
+        <td><%= prof.formal_education %></td>
+      </tr>
+    <% end %>
+
+<h4>Add another:</h4>
+<form action="">
+  <select name="skill" id="">
+    <% @skills.each do |skill| %>
+      <option value="<%= skill.id %>"><%= skill.name %></option>
+    <% end %>
+  </select>
+</form>

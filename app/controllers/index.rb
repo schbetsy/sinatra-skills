@@ -38,11 +38,23 @@ end
 
 #----------- USERS -----------
 
+
 get '/users/new' do
   # render sign-up page
   @user = User.new
   erb :sign_up
 end
+
+get '/users/profile' do
+  @user = current_user
+  if @user
+    @skills = Skill.all
+    erb :your_skills
+  else
+    redirect to "/"
+  end
+end
+
 
 post '/users' do
   # sign-up
